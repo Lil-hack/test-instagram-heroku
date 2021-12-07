@@ -1,9 +1,33 @@
-import os
 from instapy import InstaPy
+from instapy.util import smart_run
+from flask import Flask
 
-if __name__ == '__main__':
-    # Bind to PORT if defined, otherwise default to 5000.
 
-    InstaPy(username="lumpyproduction@gmail.com", password="lumpybeats1996").login()
-    while True:
-        pass
+app = Flask(__name__)
+# login credentials
+insta_username = ''
+insta_password = ''
+
+# get an InstaPy session!
+# set headless_browser=True to run InstaPy in the background
+session = InstaPy(username=insta_username,
+                password=insta_password,
+                headless_browser=True,
+                nogui=True)
+
+@app.route('/')
+def index():
+    with smart_run(session):
+        """ Activity flow """
+        # settings
+        session.set_relationship_bounds(
+            enabled=True,
+            delimit_by_numbers=True,
+            max_followers=4590,
+            min_followers=45,
+            min_following=77)
+
+        # actions
+        session.like_by_tags(["natgeo"], amount=10)
+
+    return 'Done'
