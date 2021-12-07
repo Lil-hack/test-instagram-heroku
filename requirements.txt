@@ -1,2 +1,3 @@
+xvfbwrapper
 Flask
 instapy
