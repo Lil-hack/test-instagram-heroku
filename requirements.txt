@@ -1,2 +1,2 @@
-webdrivermanager==0.9.0
+Flask
 instapy
