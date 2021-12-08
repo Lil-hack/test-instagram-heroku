@@ -20,10 +20,10 @@ from instapy_chromedriver import binary_path # this will get you the path variab
 
 @app.route('/')
 def index():
-    with smart_run(session):
+
         """ Activity flow """
         # settings
         driver = webdriver.Chrome(executable_path=binary_path)
         driver.get("http://www.python.org")
 
-    return 'Done'
+        return 'Done'
