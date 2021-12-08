@@ -16,9 +16,11 @@ insta_password = 'lumpybeats1996'
 from selenium import webdriver
 from instapy_chromedriver import binary_path # this will get you the path variable
 
-
-
 @app.route('/')
+def index():
+    return "<h1>Welcome to our server !!</h1>"
+
+@app.route('/123')
 def index():
 
         """ Activity flow """
@@ -27,3 +29,9 @@ def index():
         driver.get("http://www.python.org")
 
         return 'Done'
+
+if __name__ == '__main__':
+    # Threaded option to enable multiple instances for multiple user access support
+    app.run(threaded=True, port=5000)
+
+
