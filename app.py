@@ -1,11 +1,6 @@
 from instapy import InstaPy
 from instapy.util import smart_run
 
-
-from flask import Flask, request, jsonify
-
-app = Flask(__name__)
-# login credentials
 insta_username = 'lumpyproduction@gmail.com'
 insta_password = 'lumpybeats1996'
 
@@ -16,9 +11,6 @@ insta_password = 'lumpybeats1996'
 from selenium import webdriver
 from instapy_chromedriver import binary_path # this will get you the path variable
 
-@app.route('/')
-def index():
-    return "<h1>Welcome to our server !!</h1>"
 
 @app.route('/123')
 def index():
@@ -30,8 +22,21 @@ def index():
 
         return 'Done'
 
+from flask import Flask
+from datetime import datetime
+app = Flask(__name__)
+
+@app.route('/')
+def homepage():
+    the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
+
+    return """
+    <h1>Hello heroku</h1>
+    <p>It is currently {time}.</p>
+    <img src="http://loremflickr.com/600/400" />
+    """.format(time=the_time)
+
 if __name__ == '__main__':
-    # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
+    app.run(debug=True, use_reloader=True)
 
 
