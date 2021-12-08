@@ -12,15 +12,7 @@ from selenium import webdriver
 from instapy_chromedriver import binary_path # this will get you the path variable
 
 
-@app.route('/123')
-def index():
 
-        """ Activity flow """
-        # settings
-        driver = webdriver.Chrome(executable_path=binary_path)
-        driver.get("http://www.python.org")
-
-        return 'Done'
 
 from flask import Flask
 from datetime import datetime
