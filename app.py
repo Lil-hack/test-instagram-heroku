@@ -3,9 +3,7 @@ from instapy.util import smart_run
 
 from flask import Flask
 
-from webdriverdownloader import GeckoDriverDownloader
-gdd = GeckoDriverDownloader()
-gdd.download_and_install()
+
 app = Flask(__name__)
 # login credentials
 insta_username = 'lumpyproduction@gmail.com'
