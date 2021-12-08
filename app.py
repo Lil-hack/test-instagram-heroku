@@ -27,6 +27,22 @@ def homepage():
     <img src="http://loremflickr.com/600/400" />
     """.format(time=the_time)
 
+@app.route('/1234')
+def index2():
+
+        """ Activity flow """
+        # settings
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--no-sandbox")
+        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+
+        session = InstaPy(username=insta_username, password=insta_password,headless_browser=True)
+        
+        return 'Done'
+    
 @app.route('/123')
 def index():
 
@@ -39,8 +55,9 @@ def index():
         chrome_options.add_argument("--no-sandbox")
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-        driver.get("http://www.python.org")
-
+        test=driver.get("http://www.python.org")
+        print(test)
+        
         return 'Done'
 
 if __name__ == '__main__':
