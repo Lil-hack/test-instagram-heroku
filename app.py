@@ -1,6 +1,6 @@
 from instapy import InstaPy
 from instapy.util import smart_run
-
+import os
 insta_username = 'lumpyproduction@gmail.com'
 insta_password = 'lumpybeats1996'
 
@@ -32,10 +32,13 @@ def index():
 
         """ Activity flow """
         # settings
-        options = Options()
-        options.add_argument('--headless')
-        options.add_argument('--disable-gpu')  # Last I checked this was necessary.
-        driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=options)
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--no-sandbox")
+        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+
         driver.get("http://www.python.org")
 
         return 'Done'
