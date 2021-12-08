@@ -12,7 +12,7 @@ insta_password = 'lumpybeats1996'
 # get an InstaPy session!
 # set headless_browser=True to run InstaPy in the background
 session = InstaPy(username=insta_username,
-                password=insta_password)
+                password=insta_password,headless_browser=True)
 
 @app.route('/')
 def index():
