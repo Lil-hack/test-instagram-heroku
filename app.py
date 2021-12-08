@@ -10,8 +10,7 @@ insta_password = 'lumpybeats1996'
 #                password=insta_password,headless_browser=True)
 from selenium import webdriver
 from instapy_chromedriver import binary_path # this will get you the path variable
-
-
+from selenium.webdriver.chrome.options import Options
 
 
 from flask import Flask
@@ -27,6 +26,19 @@ def homepage():
     <p>It is currently {time}.</p>
     <img src="http://loremflickr.com/600/400" />
     """.format(time=the_time)
+
+@app.route('/123')
+def index():
+
+        """ Activity flow """
+        # settings
+        options = Options()
+        options.add_argument('--headless')
+        options.add_argument('--disable-gpu')  # Last I checked this was necessary.
+        driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=options)
+        driver.get("http://www.python.org")
+
+        return 'Done'
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
