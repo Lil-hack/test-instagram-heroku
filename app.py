@@ -11,8 +11,13 @@ insta_password = 'lumpybeats1996'
 
 # get an InstaPy session!
 # set headless_browser=True to run InstaPy in the background
-session = InstaPy(username=insta_username,
-                password=insta_password,headless_browser=True)
+#session = InstaPy(username=insta_username,
+#                password=insta_password,headless_browser=True)
+from selenium import webdriver
+from instapy_chromedriver import binary_path # this will get you the path variable
+
+driver = webdriver.Chrome(executable_path=binary_path)
+driver.get("http://www.python.org")
 
 @app.route('/')
 def index():
