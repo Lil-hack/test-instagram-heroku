@@ -1,6 +1,6 @@
 instapy-chromedriver
 webdriverdownloader
-webdrivermanager==0.9.0
+webdrivermanager
 xvfbwrapper
 Flask
 instapy
