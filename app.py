@@ -16,22 +16,14 @@ insta_password = 'lumpybeats1996'
 from selenium import webdriver
 from instapy_chromedriver import binary_path # this will get you the path variable
 
-driver = webdriver.Chrome(executable_path=binary_path)
-driver.get("http://www.python.org")
+
 
 @app.route('/')
 def index():
     with smart_run(session):
         """ Activity flow """
         # settings
-        session.set_relationship_bounds(
-            enabled=True,
-            delimit_by_numbers=True,
-            max_followers=4590,
-            min_followers=45,
-            min_following=77)
-
-        # actions
-        session.like_by_tags(["natgeo"], amount=10)
+        driver = webdriver.Chrome(executable_path=binary_path)
+        driver.get("http://www.python.org")
 
     return 'Done'
