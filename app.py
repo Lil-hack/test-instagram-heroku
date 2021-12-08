@@ -1,8 +1,8 @@
 from instapy import InstaPy
 from instapy.util import smart_run
 
-from flask import Flask
 
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 # login credentials
