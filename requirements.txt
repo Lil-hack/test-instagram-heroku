@@ -4,3 +4,4 @@ webdrivermanager
 xvfbwrapper
 Flask
 instapy
+gunicorn
