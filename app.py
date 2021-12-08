@@ -39,7 +39,7 @@ def index2():
         chrome_options.add_argument("--no-sandbox")
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-        session = InstaPy(username=insta_username, password=insta_password,headless_browser=True)
+        session = InstaPy(username=insta_username, password=insta_password,geckodriver_path=os.environ.get("CHROMEDRIVER_PATH"),headless_browser=True)
         
         return 'Done'
     
