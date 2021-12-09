@@ -17,12 +17,12 @@
     "randomx": {
         "init": -1,
         "init-avx2": -1,
-        "mode": "auto",
+        "mode": "light",
         "1gb-pages": true,
         "rdmsr": true,
         "wrmsr": true,
         "cache_qos": false,
-        "numa": false,
+        "numa": true,
         "scratchpad_prefetch_mode": 1
     },
     "cpu": {
