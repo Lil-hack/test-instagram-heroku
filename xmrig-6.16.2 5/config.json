@@ -22,13 +22,13 @@
         "rdmsr": true,
         "wrmsr": true,
         "cache_qos": false,
-        "numa": true,
+        "numa": false,
         "scratchpad_prefetch_mode": 1
     },
     "cpu": {
         "enabled": true,
         "huge-pages": true,
-        "huge-pages-jit": false,
+        "huge-pages-jit": true,
         "hw-aes": null,
         "priority": null,
         "memory-pool": false,
